@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description"
+    content="مجمع لايف كير التخصصي – مختبر متكامل، صيدلية، وفريق طبي متميز. خدماتنا: تحاليل طبية، رعاية صحية، استشارات متخصصة في القضارف.">
+  <meta name="keywords" content="لايف كير, مختبر, صيدلية, تحاليل, السودان, القضارف">
+  <title>مجمع لايف كير التخصصي | Life Care Clinic - مختبر وصيدلية</title>
+  <!-- Google Fonts: Cairo Modern Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom overrides & glassmorph styles */
+    body {
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2);
+    }
+
+    .doctor-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(20, 184, 166, 0.2);
+    }
+
+    .doctor-card .img-wrapper {
+      overflow: hidden;
+    }
+
+    .doctor-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .doctor-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .smart-crop-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      filter: contrast(1.1) brightness(1.05) saturate(1.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid #14b8a6;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #14b8a6;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu {
+      transition: max-height 0.3s ease-out;
+      overflow: hidden;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 0;
+      width: 60%;
+      height: 3px;
+      background: #16a34a;
+      border-radius: 3px;
+    }
+
+    [dir="ltr"] .section-title:after {
+      left: 0;
+      right: auto;
+    }
+
+    .map-container iframe {
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+    }
+
+    @media (min-width: 768px) {
+      .map-container iframe {
+        min-height: 320px;
+      }
+    }
+
+    .test-item {
+      transition: all 0.2s;
+    }
+
+    .test-item:hover {
+      background: #e6f7f5;
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md border-b border-teal-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-3 md:py-4">
+        <!-- Logo -->
+        <a href="#home"
+          class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text text-transparent">
+          Life Care <span class="text-teal-700">Clinic</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8 rtl:space-x-reverse items-center">
+          <a href="#home" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">الرئيسية</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">من نحن</a>
+          <a href="#doctors" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">الفريق
+            الطبي</a>
+          <a href="#services" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">خدماتنا</a>
+          <a href="#lab" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">المختبر</a>
+          <a href="#pharmacy" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">الصيدلية</a>
+          <a href="#contact" class="nav-link text-gray-700 hover:text-teal-600 font-semibold transition">اتصل بنا</a>
+          <button id="langToggleDesktop"
+            class="bg-teal-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-green-600 transition shadow-md">
+            English
+          </button>
+        </nav>
+
+        <!-- Mobile Controls -->
+        <div class="flex md:hidden items-center gap-3">
+          <button id="langToggleMobile"
+            class="bg-teal-600 text-white text-xs px-3 py-1.5 rounded-full font-bold">EN</button>
+          <button id="menuBtn" class="text-teal-700 text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (collapsible) -->
+      <div id="mobileMenu"
+        class="md:hidden max-h-0 mobile-menu flex flex-col gap-2 bg-white/95 border-t border-gray-200 transition-all duration-300 overflow-hidden">
+        <a href="#home"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">الرئيسية</a>
+        <a href="#about"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">من نحن</a>
+        <a href="#doctors"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">الفريق الطبي</a>
+        <a href="#services"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">خدماتنا</a>
+        <a href="#lab"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">المختبر</a>
+        <a href="#pharmacy"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">الصيدلية</a>
+        <a href="#contact"
+          class="mobile-nav-link block py-2 px-2 text-gray-800 hover:bg-teal-50 rounded-lg font-medium">اتصل بنا</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home"
+      class="relative bg-gradient-to-br from-teal-50 via-white to-teal-50 py-12 md:py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/hexellence.png')] opacity-5">
+      </div>
+      <div class="container mx-auto px-5 md:px-10 flex flex-col md:flex-row items-center gap-10 relative z-10">
+        <div class="flex-1 text-center md:text-right">
+          <h1 id="heroTitle" class="text-4xl md:text-5xl lg:text-6xl font-bold text-teal-800 mb-4">مجمع لايف كير التخصصي
+          </h1>
+          <p id="heroSub" class="text-xl text-green-600 font-semibold mb-2">Life Care Specialized Clinic</p>
+          <p id="heroDesc" class="text-base md:text-lg text-gray-700 max-w-xl mx-auto md:mx-0 mb-8 leading-relaxed">فريق
+            طبي متكامل لرعاية تستحقها. في مجمع لايف كير التخصصي، صحتك ما مجرد خدمة… بل التزام يومي نقدمو ليك بأعلى مستوى
+            من الاحترافية والاهتمام.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="#contact" id="heroBtnAppoint"
+              class="btn-primary text-white font-bold py-3 px-7 rounded-full shadow-lg text-center text-lg flex items-center justify-center gap-2"><i
+                class="fas fa-calendar-alt"></i> احجز الآن</a>
+            <a href="#services" id="heroBtnServices"
+              class="btn-outline text-teal-700 font-semibold py-3 px-7 rounded-full text-center transition">استكشف
+              خدماتنا</a>
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center">
+          <img loading="lazy" src="images\7.jpg" alt="فريق طبي"
+            class="rounded-2xl shadow-2xl max-w-full h-auto w-80 md:w-full object-cover border-4 border-white">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 id="aboutTitle" class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">من
+            نحن</h2>
+        </div>
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="flex-1 order-2 md:order-1">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=600&h=400&fit=crop"
+              alt="عيادة لايف كير" class="rounded-2xl shadow-xl w-full">
+          </div>
+          <div class="flex-1 order-1 md:order-2 text-gray-700 leading-relaxed space-y-5 text-lg">
+            <p id="aboutText">مجمع لايف كير التخصصي هو صرح طبي متكامل يقدم رعاية صحية متميزة في قلب القضارف. يجمع نخبة
+              من أشهر الاستشاريين والأخصائيين في مختلف التخصصات الطبية، معتمدين على أحدث التقنيات والتجهيزات لضمان تشخيص
+              دقيق وعلاج فعال. رسالتنا: صحتك في أيد أمينة، ونحن هنا من أول استشارة حتى تمام الشفاء.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="py-16 bg-gradient-to-b from-teal-50 to-white">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">فريقنا الطبي المتميز
+          </h2>
+        </div>
+        <div id="doctors-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <!-- Doctor cards will be dynamically injected here via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 id="servicesTitle" class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">
+            خدماتنا الطبية</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-female text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service1">النساء والتوليد</h3>
+            <p class="text-gray-500 text-sm">رعاية متكاملة للأم والجنين</p>
+          </div>
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-heartbeat text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service2">الباطنية</h3>
+            <p class="text-gray-500 text-sm">تشخيص دقيق ومتابعة</p>
+          </div>
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-eye text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service3">العيون</h3>
+            <p class="text-gray-500 text-sm">فحص وعلاج متقدم</p>
+          </div>
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-baby text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service4">الأطفال</h3>
+            <p class="text-gray-500 text-sm">رعاية وحديثي الولادة</p>
+          </div>
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-scalpel text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service5">الجراحة العامة</h3>
+            <p class="text-gray-500 text-sm">استشارات جراحية</p>
+          </div>
+          <div
+            class="service-card bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition border-b-4 border-teal-400 text-center">
+            <div class="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center mb-4"><i
+                class="fas fa-hand-holding-heart text-teal-700 text-2xl"></i></div>
+            <h3 class="service-name text-xl font-bold text-teal-800 mb-2" data-key="service6">التمريض والرعاية</h3>
+            <p class="text-gray-500 text-sm">رعاية منزلية ومستشفوية</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Laboratory Section -->
+    <section id="lab" class="py-16 bg-gradient-to-br from-teal-50 to-green-50">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">مختبر لايف كير
+            التخصصي</h2>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">أحدث الأجهزة وأعلى دقة – جميع التحاليل الطبية تحت سقف واحد</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10">
+          <div class="flex-1 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+            <div class="flex items-center gap-3 mb-6">
+              <i class="fas fa-flask text-teal-600 text-3xl"></i>
+              <h3 class="text-2xl font-bold text-teal-800">قائمة الفحوصات</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> جميع الفحوصات الروتينية</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل وظائف الكبد ووظائف الكلى</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل إنزيمات القلب</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل مؤشرات الأورام السرطانية</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل هرمونات الغدة الدرقية</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل هرمونات الخصوبة والإنجاب</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل السائل المنوي</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> جميع فحوصات مرضى السكري</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل بكتيريا المعدة (Helicobacter pylori)</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل الفيروسات المسببة للإجهاض المبكر</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل أمراض الدم والسيولة</div>
+              <div class="test-item flex items-center gap-2 p-2 rounded-lg"><i
+                  class="fas fa-check-circle text-green-500"></i> تحليل الدهون (كوليسترول - دهون ثلاثية)</div>
+            </div>
+          </div>
+          <div class="flex-1 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl text-center">
+            <i class="fas fa-user-md text-5xl text-teal-600 mb-4"></i>
+            <h3 class="text-2xl font-bold text-teal-800">د. محمد مصطفى حسن حمد</h3>
+            <p class="text-green-600 font-medium mt-1">مدير المختبر التحليلي</p>
+            <div class="mt-4 space-y-2">
+              <p><i class="fas fa-map-marker-alt text-teal-600 ml-2"></i> القضارف – شارع الدكاترة أمام البنك الزراعي</p>
+              <p><i class="fas fa-phone-alt text-teal-600 ml-2"></i> <a href="tel:0911394848"
+                  class="hover:text-teal-800">0911394848</a></p>
+              <p><i class="fas fa-envelope text-teal-600 ml-2"></i> Lifecare2321@gmail.com</p>
+            </div>
+            <a href="https://wa.me/249911394848?text=أهلاً، أرغب في الاستفسار عن تحاليل" target="_blank"
+              class="inline-block mt-5 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition"><i
+                class="fab fa-whatsapp ml-2"></i> تواصل عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pharmacy Section - Fixed Image -->
+    <section id="pharmacy" class="py-16 bg-white">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">صيدلية لايف كير</h2>
+          <p class="text-gray-600 mt-4">أدوية بشرية - مستحضرات تجميل - مستلزمات مرضى السكري والضغط</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10 items-center">
+          <div class="flex-1 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl p-8 shadow-xl text-center">
+            <i class="fas fa-prescription-bottle-alt text-5xl text-teal-700 mb-4"></i>
+            <h3 class="text-2xl font-bold text-teal-800">صيدلية لايف كير</h3>
+            <p class="text-gray-700 mt-3">نوفر لكم أحدث الأدوية والمستلزمات الطبية بأفضل جودة. فريق صيدلي متخصص يقدم
+              استشارات دوائية آمنة.</p>
+            <div class="mt-6 space-y-2">
+              <p><i class="fas fa-map-marker-alt text-teal-600 ml-2"></i> القضارف – شارع الدكاترة أمام البنك الزراعي</p>
+              <p><i class="fas fa-phone-alt text-teal-600 ml-2"></i> <a href="tel:0126235886"
+                  class="hover:text-teal-800">0126235886</a></p>
+              <p><i class="fas fa-user-md text-teal-600 ml-2"></i> د. حسن إبراهيم الكردي – صيدلي أول</p>
+            </div>
+            <a href="https://wa.me/249126235886?text=أهلاً، أرغب في الاستفسار عن دواء" target="_blank"
+              class="inline-block mt-6 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition"><i
+                class="fab fa-whatsapp ml-2"></i> تواصل مع الصيدلي</a>
+          </div>
+          <div class="flex-1">
+            <!-- Fixed pharmacy image: using a reliable stock photo from Unsplash that is known to work -->
+            <img loading="lazy" src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&h=400&fit=crop"
+              alt="صيدلية لايف كير" class="rounded-2xl shadow-2xl w-full object-cover h-64 md:h-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gradient-to-r from-teal-50 to-green-50">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-10">
+          <h2 id="whyTitle" class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">ليه
+            تختار لايف كير؟</h2>
+          <p id="whyDesc" class="text-gray-600 mt-4 max-w-2xl mx-auto">لأنك ما داير تمشي من عيادة لعيادة… نحن جمعنا ليك
+            كل التخصصات في مكان واحد 👇</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div class="why-point flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm"><i
+              class="fas fa-check-circle text-green-600 text-2xl"></i><span data-key="why1">✔ تشخيص دقيق وسريع</span>
+          </div>
+          <div class="why-point flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm"><i
+              class="fas fa-check-circle text-green-600 text-2xl"></i><span data-key="why2">✔ فريق طبي بخبرة
+              عالية</span></div>
+          <div class="why-point flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm"><i
+              class="fas fa-check-circle text-green-600 text-2xl"></i><span data-key="why3">✔ متابعة مستمرة
+              لحالتك</span></div>
+          <div class="why-point flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm"><i
+              class="fas fa-check-circle text-green-600 text-2xl"></i><span data-key="why4">✔ بيئة مريحة وآمنة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="container mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 id="contactTitle" class="section-title text-3xl md:text-4xl font-bold text-teal-800 inline-block pb-2">
+            تواصل معنا</h2>
+          <p id="contactInfo" class="text-gray-600 mt-4">نحن هنا لخدمتك – احجز الآن واطمّن</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10">
+          <div class="flex-1 bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-teal-100">
+            <form id="contactForm" class="space-y-5">
+              <input type="text" id="nameInput" placeholder="الاسم الكامل"
+                class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-400 outline-none">
+              <input type="tel" id="phoneInput" placeholder="رقم الهاتف"
+                class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-400 outline-none">
+              <textarea rows="4" id="msgInput" placeholder="الرسالة"
+                class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-400 outline-none"></textarea>
+              <button type="submit"
+                class="btn-primary text-white font-bold py-3 px-6 rounded-full w-full md:w-auto transition">إرسال
+                الرسالة</button>
+            </form>
+            <div class="mt-8 pt-6 border-t border-gray-200">
+              <h3 class="font-bold text-teal-800 text-xl mb-3"><i class="fas fa-phone-alt text-green-600 ml-2"></i> اتصل
+                بنا مباشرة</h3>
+              <div class="flex flex-wrap gap-3 mb-4">
+                <a href="tel:0123923950"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0123923950</a>
+                <a href="tel:0914096228"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0914096228</a>
+                <a href="tel:0124444255"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0124444255</a>
+                <a href="tel:0126235886"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0126235886</a>
+                <a href="tel:0918014141"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0918014141</a>
+                <a href="tel:0911394848"
+                  class="bg-gray-100 px-4 py-2 rounded-full text-sm font-mono text-teal-800 hover:bg-teal-100 transition">0911394848</a>
+              </div>
+              <a href="https://wa.me/249123923950?text=أهلاً، أرغب في حجز استشارة" target="_blank" id="whatsappBtn"
+                class="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-full font-bold hover:bg-green-700 transition"><i
+                  class="fab fa-whatsapp text-xl"></i> واتساب للحجز</a>
+              <p class="mt-4"><i class="fas fa-envelope text-green-600 ml-2"></i> Lifecare2321@gmail.com</p>
+              <p class="mt-2"><i class="fas fa-map-marker-alt text-green-600 ml-2"></i> السودان – القضارف – مقابل البنك
+                الزراعي (شارع الدكاترة)</p>
+            </div>
+          </div>
+          <div class="flex-1 map-container h-80 md:h-auto rounded-2xl overflow-hidden shadow-xl">
+            <iframe title="موقع العيادة" loading="lazy"
+              src="https://maps.google.com/maps?q=Al%20Qadarif%20Sudan%20Agricultural%20Bank&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              style="border:0; width:100%; height:100%;" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-teal-800 text-white py-8">
+    <div class="container mx-auto px-5 text-center">
+      <p id="footerRights" class="text-sm opacity-90">© 2025 مجمع لايف كير التخصصي – مختبر، صيدلية، وفريق طبي متكامل.
+        جميع الحقوق محفوظة.</p>
+      <div class="flex justify-center gap-6 mt-4 text-xl">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f hover:text-teal-300 transition"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram hover:text-teal-300 transition"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter hover:text-teal-300 transition"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Translations (Arabic & English)
+    const translations = {
+      ar: {
+        navHome: "الرئيسية", navAbout: "من نحن", navDoctors: "الفريق الطبي", navServices: "خدماتنا", navLab: "المختبر", navPharmacy: "الصيدلية", navContact: "اتصل بنا",
+        heroTitle: "مجمع لايف كير التخصصي", heroSub: "Life Care Specialized Clinic", heroDesc: "فريق طبي متكامل لرعاية تستحقها. في مجمع لايف كير التخصصي، صحتك ما مجرد خدمة… بل التزام يومي نقدمو ليك بأعلى مستوى من الاحترافية والاهتمام.",
+        heroBtnAppoint: "احجز الآن", heroBtnServices: "استكشف خدماتنا",
+        aboutTitle: "من نحن", aboutText: "مجمع لايف كير التخصصي هو صرح طبي متكامل يقدم رعاية صحية متميزة في قلب القضارف. يجمع نخبة من أشهر الاستشاريين والأخصائيين في مختلف التخصصات الطبية، معتمدين على أحدث التقنيات والتجهيزات لضمان تشخيص دقيق وعلاج فعال. رسالتنا: صحتك في أيد أمينة، ونحن هنا من أول استشارة حتى تمام الشفاء.",
+        servicesTitle: "خدماتنا الطبية",
+        service1: "النساء والتوليد", service2: "الباطنية", service3: "العيون", service4: "الأطفال", service5: "الجراحة العامة", service6: "التمريض والرعاية",
+        whyTitle: "ليه تختار لايف كير؟", whyDesc: "لأنك ما داير تمشي من عيادة لعيادة… نحن جمعنا ليك كل التخصصات في مكان واحد 👇",
+        why1: "✔ تشخيص دقيق وسريع", why2: "✔ فريق طبي بخبرة عالية", why3: "✔ متابعة مستمرة لحالتك", why4: "✔ بيئة مريحة وآمنة",
+        contactTitle: "تواصل معنا", contactInfo: "نحن هنا لخدمتك – احجز الآن واطمّن",
+        formName: "الاسم الكامل", formPhone: "رقم الهاتف", formMsg: "الرسالة", formSubmit: "إرسال الرسالة",
+        footerRights: "© 2025 مجمع لايف كير التخصصي – مختبر، صيدلية، وفريق طبي متكامل. جميع الحقوق محفوظة.",
+        whatsappMsg: "أهلاً، أرغب في حجز استشارة"
+      },
+      en: {
+        navHome: "Home", navAbout: "About", navDoctors: "Medical Team", navServices: "Services", navLab: "Laboratory", navPharmacy: "Pharmacy", navContact: "Contact",
+        heroTitle: "Life Care Specialized Clinic", heroSub: "مجمع لايف كير التخصصي", heroDesc: "A fully integrated medical team providing care you deserve. At Life Care, your health is not just a service… it’s a daily commitment delivered with professionalism and compassion.",
+        heroBtnAppoint: "Book Now", heroBtnServices: "Explore Services",
+        aboutTitle: "About Us", aboutText: "Life Care Specialized Clinic is a state-of-the-art medical facility in the heart of Al Qadarif, Sudan. We bring together leading consultants and specialists using advanced technology for precise diagnosis and effective treatment. Our mission: Your health in trusted hands, from first consultation to full recovery.",
+        servicesTitle: "Our Medical Services",
+        service1: "Obstetrics & Gynecology", service2: "Internal Medicine", service3: "Ophthalmology", service4: "Pediatrics", service5: "General Surgery", service6: "Nursing & Care",
+        whyTitle: "Why Choose Life Care?", whyDesc: "Because you don’t want to go from clinic to clinic… we bring all specialties under one roof 👇",
+        why1: "✔ Accurate & Fast Diagnosis", why2: "✔ Highly Experienced Medical Team", why3: "✔ Continuous Follow-up", why4: "✔ Comfortable & Safe Environment",
+        contactTitle: "Contact Us", contactInfo: "We're here for you – Book now and rest assured",
+        formName: "Full Name", formPhone: "Phone Number", formMsg: "Message", formSubmit: "Send Message",
+        footerRights: "© 2025 Life Care Specialized Clinic – Laboratory, Pharmacy, and integrated medical team. All rights reserved.",
+        whatsappMsg: "Hello, I would like to book a consultation"
+      }
+    };
+
+    let currentLang = 'ar';
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+
+      document.getElementById('heroTitle').innerText = t.heroTitle;
+      document.getElementById('heroSub').innerText = t.heroSub;
+      document.getElementById('heroDesc').innerText = t.heroDesc;
+      document.getElementById('heroBtnAppoint').innerHTML = `<i class="fas fa-calendar-alt"></i> ${t.heroBtnAppoint}`;
+      document.getElementById('heroBtnServices').innerText = t.heroBtnServices;
+      document.getElementById('aboutTitle').innerText = t.aboutTitle;
+      document.getElementById('aboutText').innerText = t.aboutText;
+      document.getElementById('servicesTitle').innerText = t.servicesTitle;
+      document.querySelectorAll('.service-name').forEach((el, idx) => { el.innerText = t[`service${idx + 1}`]; });
+      document.getElementById('whyTitle').innerText = t.whyTitle;
+      document.getElementById('whyDesc').innerText = t.whyDesc;
+      document.querySelectorAll('.why-point span').forEach((span, idx) => { span.innerText = t[`why${idx + 1}`]; });
+      document.getElementById('contactTitle').innerText = t.contactTitle;
+      document.getElementById('contactInfo').innerText = t.contactInfo;
+      document.getElementById('footerRights').innerText = t.footerRights;
+
+      const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+      const navKeys = ['navHome', 'navAbout', 'navDoctors', 'navServices', 'navLab', 'navPharmacy', 'navContact'];
+      navLinks.forEach((link, i) => { if (i < navKeys.length) link.innerText = t[navKeys[i]]; });
+
+      document.getElementById('nameInput').placeholder = t.formName;
+      document.getElementById('phoneInput').placeholder = t.formPhone;
+      document.getElementById('msgInput').placeholder = t.formMsg;
+      document.querySelector('#contactForm button[type="submit"]').innerText = t.formSubmit;
+
+      const whatsappBtn = document.getElementById('whatsappBtn');
+      const phoneWA = "249123923950";
+      whatsappBtn.href = `https://wa.me/${phoneWA}?text=${encodeURIComponent(t.whatsappMsg)}`;
+
+      const htmlEl = document.documentElement;
+      if (lang === 'ar') {
+        htmlEl.setAttribute('dir', 'rtl');
+        htmlEl.setAttribute('lang', 'ar');
+      } else {
+        htmlEl.setAttribute('dir', 'ltr');
+        htmlEl.setAttribute('lang', 'en');
+      }
+      document.getElementById('langToggleDesktop').innerText = lang === 'ar' ? 'English' : 'العربية';
+      document.getElementById('langToggleMobile').innerText = lang === 'ar' ? 'EN' : 'AR';
+    }
+
+    function initLangToggle() {
+      const toggleDesk = document.getElementById('langToggleDesktop');
+      const toggleMob = document.getElementById('langToggleMobile');
+      const switchLang = () => {
+        const newLang = currentLang === 'ar' ? 'en' : 'ar';
+        updateLanguage(newLang);
+      };
+      toggleDesk.addEventListener('click', switchLang);
+      toggleMob.addEventListener('click', switchLang);
+    }
+
+    function initMobileMenu() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => {
+        if (mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px') {
+          mobileMenu.style.maxHeight = '0px';
+        } else {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+        }
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => { mobileMenu.style.maxHeight = '0px'; });
+      });
+    }
+
+    function initContactForm() {
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert(currentLang === 'ar' ? 'تم استلام رسالتك، سنتواصل معك قريباً' : 'Message received, we will contact you soon.');
+        form.reset();
+      });
+    }
+
+    function initDoctors() {
+      // Dynamic loading of images from the images directory
+      const doctorImages = ['1.png', '2.png', '3.png', '4.png', '5.png'];
+      const grid = document.getElementById('doctors-grid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      doctorImages.forEach(imgFile => {
+        let rawName = imgFile.split('.')[0];
+        let docName = 'دكتور متخصص';
+
+        if (/[a-zA-Zء-ي]/.test(rawName) && isNaN(rawName)) {
+          docName = rawName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        const cardHTML = `
+          <div class="doctor-card glass-card bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg text-center p-6 transition">
+            <div class="w-48 h-48 mx-auto rounded-full img-wrapper border-4 border-teal-300 shadow-md mb-5 bg-gray-100 flex items-center justify-center">
+              <img loading="lazy" src="images/${imgFile}" alt="${docName}" class="smart-crop-img">
+            </div>
+            <h3 class="text-xl font-bold text-teal-800">${docName}</h3>
+            <p class="text-green-600 font-medium doctor-role-text">الفريق الطبي</p>
+            <p class="text-gray-500 text-sm mt-3"><i class="fas fa-phone-alt ml-1"></i> تواصل معنا</p>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHTML);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initDoctors();
+      updateLanguage('ar');
+      initLangToggle();
+      initMobileMenu();
+      initContactForm();
+    });
+  </script>
+</body>
+
+</html>
